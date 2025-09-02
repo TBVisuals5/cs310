@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/MathApp.dir/src/main.cpp.o CMakeFiles/MathApp.dir/src/math_functions.cpp.o -o MathApp 

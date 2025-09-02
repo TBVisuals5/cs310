@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16) # Maximum CMake version
+cmake_minimum_required(VERSION 3.28) # Maximum CMake version
 
 project(MathLibProject VERSION 1.0 LANGUAGES CXX) # Project name and version
 
