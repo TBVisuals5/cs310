@@ -32,4 +32,10 @@ int main (int argc, char const *argv[])
         catch( const out_of_range& e){
             cerr << "Out of Range Error" << e.what() << '\n';
         }
+        catch( const exception& e){
+            cerr << "Error: " << e.what() << '\n';
+        }
+
+        cout << "Execution continues..." << endl;
+        return 0;
 }
