@@ -31,3 +31,4 @@ public:
   const std::string& name() const { return name_; }
   const std::string& email() const { return email_; }
 };
+

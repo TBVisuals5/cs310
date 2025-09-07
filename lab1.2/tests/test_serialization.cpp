@@ -26,3 +26,4 @@ TEST_CASE("CSV escaping handles commas and quotes") {
 TEST_CASE("Validation throws on bad email") {
   REQUIRE_THROWS_AS(Student(13,"Zed","not-an-email",2026), ValidationError);
 }
+

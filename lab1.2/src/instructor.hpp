@@ -53,3 +53,4 @@ public:
            csv_escape(office_) + "," + csv_escape(joined);
   }
 };
+

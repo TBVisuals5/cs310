@@ -53,3 +53,4 @@ public:
            std::to_string(grad_year_) + "," + csv_escape(joined);
   }
 };
+

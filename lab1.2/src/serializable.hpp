@@ -10,3 +10,4 @@ struct Serializable {
   virtual std::string    csv_header() const = 0;
   virtual std::string    csv_row() const = 0;
 };
+

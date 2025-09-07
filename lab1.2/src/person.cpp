@@ -1,3 +1,4 @@
 #include "person.hpp"
 
-// (No out-of-line defs yet; present for library compilation structure)
+// Intentionally empty: all behavior is inline / in derived classes.
+// Provides an object file for the `core` library.
