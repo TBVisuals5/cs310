@@ -7,32 +7,32 @@ include(FetchContent)
 
 # nlohmann/json (JSON)
 FetchContent_Declare(
-  json
-  GIT_REPOSITORY https://github.com/nlohmann/json.git
-  GIT_TAG v3.11.3
+json
+GIT_REPOSITORY https://github.com/nlohmann/json.git
+GIT_TAG v3.11.3
 )
 FetchContent_MakeAvailable(json)
 
 # yaml-cpp (YAML)
 FetchContent_Declare(
-  yaml-cpp
-  GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
-  GIT_TAG yaml-cpp-0.8.0
+yaml-cpp
+GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
+GIT_TAG 0.8.0
 )
 FetchContent_MakeAvailable(yaml-cpp)
 
 # Catch2 (tests)
 FetchContent_Declare(
-  catch2
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG v3.6.0
+catch2
+GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+GIT_TAG v3.6.0
 )
 FetchContent_MakeAvailable(catch2)
 
 add_library(core
-  src/person.cpp
-  src/student.cpp
-  src/instructor.cpp
+src/person.cpp
+src/student.cpp
+src/instructor.cpp
 )
 target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(core PUBLIC nlohmann_json::nlohmann_json yaml-cpp)
