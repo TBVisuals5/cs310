@@ -45,3 +45,14 @@ TEST_CASE("Bad Student JSON throws") {
   nlohmann::json j = {{"role","Student"}}; // missing required fields
   REQUIRE_THROWS_AS(Student::from_json(j), ValidationError);
 }
+
+TEST_CASE("Course serialization works") {
+  Student s1(1,"Alice","alice@uni.edu",2026);
+  Instructor instr(10,"Grace","grace@uni.edu","Room 101");
+  Course c("CS101", instr, {s1});
+
+  auto j = c.to_json();
+  CHECK(j["title"] == "CS101");
+  CHECK(j["instructor"]["name"] == "Grace");
+  CHECK(j["roster"][0]["name"] == "Alice");
+}

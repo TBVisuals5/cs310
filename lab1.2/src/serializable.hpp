@@ -11,3 +11,11 @@ struct Serializable {
   virtual std::string    csv_row() const = 0;
 };
 
+std::vector<std::unique_ptr<Serializable>> objects;
+objects.push_back(std::make_unique<Student>(...));
+objects.push_back(std::make_unique<Instructor>(...));
+objects.push_back(std::make_unique<Course>("CS101", instr, roster));
+
+for (const auto& obj : objects) {
+    auto j = obj->to_json();   // works for Course/Student/Instructor
+}
