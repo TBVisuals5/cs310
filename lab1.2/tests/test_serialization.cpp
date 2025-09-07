@@ -27,3 +27,21 @@ TEST_CASE("Validation throws on bad email") {
   REQUIRE_THROWS_AS(Student(13,"Zed","not-an-email",2026), ValidationError);
 }
 
+TEST_CASE("Round-trip Student JSON") {
+  Student s(1,"Test","t@uni.edu",2025, {"CS101"});
+  auto j = s.to_json();
+  auto s2 = Student::from_json(j);
+  CHECK(s2.to_json() == j);
+}
+
+TEST_CASE("Round-trip Instructor JSON") {
+  Instructor i(2,"Prof","p@uni.edu","R-101", {"CS101"});
+  auto j = i.to_json();
+  auto i2 = Instructor::from_json(j);
+  CHECK(i2.to_json() == j);
+}
+
+TEST_CASE("Bad Student JSON throws") {
+  nlohmann::json j = {{"role","Student"}}; // missing required fields
+  REQUIRE_THROWS_AS(Student::from_json(j), ValidationError);
+}
