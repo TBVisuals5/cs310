@@ -4,7 +4,10 @@ class ItemType
 {
     public:
         int key;
-        ItemType(int k): key(k){}
+        ItemType() 
+        {
+            key = 0;
+        }
 
         int CompareTo(ItemType other)
         {
@@ -29,12 +32,19 @@ class UnsortedLists
 {
 
     private:
-        ItemType data[MAX_ITEMS];
+        int capacity = 10;
+        ItemType* data;
         int length = 0;
         int currPos = -1;
 
     public:
-        UnsortedLists() = default;
+        UnsortedLists(int MAX_ITEMS = 100)
+        {
+            capacity = MAX_ITEMS;
+            data = new ItemType(capacity);
+            lenght = 0;
+            currPos = -1;
+        }
 
         ~UnsortedLists()
         {
@@ -82,6 +92,41 @@ class UnsortedLists
                     lenght--;
                     return;
                 }
+            }
+        }
+
+        void DisplayInReverse()
+        {
+            for (int i = lenght-1; i>=0; i--)
+            {
+                std::cout << data[i].key << std::endl;
+            }
+        }
+
+        void UnsortedType::PutItem  (ItemType item)
+        {
+            NodeType<ItemType>* location;
+
+            location = new NodeType<ItemType>;
+            location ->info = item;
+            location ->next = listData;
+
+            listData = location
+            length++;
+        }
+
+        bool UnsortedType:: IsFull() const
+        {
+            NodeType* location;
+            try
+            {
+                location = new NodeType;
+                delete location;
+                return false;
+            }
+            catch(std::bad_alloc exception)
+            {
+                return true;
             }
         }
 };
