@@ -1,3 +1,6 @@
+#ifndef
+#
+
 #include <iostream>
 #include <string>
 
@@ -95,3 +98,5 @@ virtual void ListItems() const {
         current = current->next;
     }
 }
+
+#endif

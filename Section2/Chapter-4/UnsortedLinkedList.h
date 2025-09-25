@@ -1,4 +1,3 @@
-#pragma region 
 #include "UnsortedLinkedList.h"
 
 class SortedLinkedList : public UnsortedLinkedList {
@@ -25,5 +24,9 @@ class SortedLinkedList : public UnsortedLinkedList {
                 newNode->next = current;
                 prev->next = newNode;
             }
+        }
+
+        void Remove(ItemType & item ) override{
+            
         }
 };
