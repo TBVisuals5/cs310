@@ -39,7 +39,10 @@ const char* max<const char*>(const char* a, const char* b) {
     return std::strlen(a) > std::strlen(b) ? a : b;
 }
 
-
+template <typename... Args>
+void print(Args... args) {
+    (std::cout << ... << args) << std::endl;
+}
 
 int main() {
     int a = 10;
@@ -63,4 +66,8 @@ int main() {
     std::cout << p2.getSecond() << std::endl;
     std::cout << p3.getFirst() << std::endl;
     std::cout << p3.getSecond() << std::endl;
+
+    print(1, 2, 3, 4, 5);
+    print("Hello", '', "World", '!');
+    print(3.14, "is pi,", 2.71, "is e");
 }
